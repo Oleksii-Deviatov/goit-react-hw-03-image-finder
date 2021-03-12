@@ -87,7 +87,15 @@ function App() {
       <Searchbar onSubmit={onSubmit} />
       {isLoading && <Loader />}
       <ImageGallery>
-        <ImageGalleryItem imgs={imgs} onClickImg={onClickImg} />
+        {imgs.map(({ id, webformatURL, tags, largeImageURL }) => (
+          <ImageGalleryItem
+            key={id}
+            webformatURL={webformatURL}
+            tags={tags}
+            largeImageURL={largeImageURL}
+            onClickImg={onClickImg}
+          />
+        ))}
       </ImageGallery>
       {!!imgs.length && <Button onClickBtn={onClickBtn} />}
     </>

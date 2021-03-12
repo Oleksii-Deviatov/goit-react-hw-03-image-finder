@@ -1,19 +1,17 @@
 import React from 'react';
 
-function ImageGalleryItem({ imgs, onClickImg }) {
+function ImageGalleryItem({ webformatURL, tags, largeImageURL, onClickImg }) {
   return (
     <>
-      {imgs.map(({ id, webformatURL, tags, largeImageURL }) => (
-        <li key={id} className="ImageGalleryItem">
-          <img
-            onClick={onClickImg}
-            src={webformatURL}
-            alt={tags}
-            className="ImageGalleryItem-image"
-            data-largeurl={largeImageURL}
-          />
-        </li>
-      ))}
+      <li className="ImageGalleryItem">
+        <img
+          onClick={onClickImg}
+          src={webformatURL}
+          alt={tags}
+          className="ImageGalleryItem-image"
+          data-largeurl={largeImageURL}
+        />
+      </li>
     </>
   );
 }
