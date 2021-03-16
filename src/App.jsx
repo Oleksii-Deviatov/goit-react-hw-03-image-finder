@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     if (!mounted) return setMounted(true);
     setIsLoading(true);
-    Api(q, page)
+    Api({ q, page })
       .then(data => {
         setImgs(prevImgs => [...prevImgs, ...data]);
       })

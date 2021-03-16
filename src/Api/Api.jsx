@@ -5,15 +5,13 @@ const BASE_URL = 'https://pixabay.com/api/';
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
-  q: null,
-  page: null,
   key: API_KEY,
   image_type: 'photo',
   orientation: 'horizontal',
   per_page: 12,
 };
 
-const Api = async (q, page) => {
+const Api = async ({ q, page }) => {
   try {
     const { data } = await axios.get('', {
       params: { q, page },
