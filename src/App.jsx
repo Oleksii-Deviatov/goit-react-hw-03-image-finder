@@ -14,7 +14,7 @@ function App() {
 
   const [imgs, setImgs] = useState([]); // массив картинок
 
-  const [query, setQuery] = useState(''); //поисковый запрос
+  const [q, setQ] = useState(''); //поисковый запрос
 
   const [page, setPage] = useState(1); //номер страници
 
@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     if (!mounted) return setMounted(true);
     setIsLoading(true);
-    Api(query, page)
+    Api(q, page)
       .then(data => {
         setImgs(prevImgs => [...prevImgs, ...data]);
       })
@@ -33,16 +33,16 @@ function App() {
         setIsLoading(false);
         scroll();
       });
-  }, [query, page]);
+  }, [q, page]);
 
   //чистим стейты при изменении поискового запроса
   useEffect(() => {
     setImgs([]);
     setPage(1);
-  }, [query]);
+  }, [q]);
 
   function onSubmit(input) {
-    setQuery(input);
+    setQ(input);
   }
 
   function onClickBtn() {
