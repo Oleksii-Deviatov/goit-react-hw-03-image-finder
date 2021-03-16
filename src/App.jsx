@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import Api from './components/Api';
+import Api from './Api';
 import Searchbar from './components/Searchbar';
 import ImageGallery from './components/ImageGallery';
 import ImageGalleryItem from './components/ImageGalleryItem';
@@ -27,7 +27,7 @@ function App() {
     setIsLoading(true);
     Api(query, page)
       .then(data => {
-        setImgs(prevImgs => [...prevImgs, ...data.hits]);
+        setImgs(prevImgs => [...prevImgs, ...data]);
       })
       .finally(() => {
         setIsLoading(false);
